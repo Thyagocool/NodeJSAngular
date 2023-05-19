@@ -1,11 +1,8 @@
-const route = require("express").Router();
+const route = require('express').Router();
+const userController = require('../controllers/UserController')
 
 route
-    .get('/', (req, res) => {
-        console.log('Hello USers')
-
-        res.send('Hello there')
-    })
+    .get('/users', userController.selectAll)
 
 
 module.exports = route
