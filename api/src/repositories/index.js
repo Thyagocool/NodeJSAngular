@@ -17,7 +17,6 @@ class Repository {
 
     async createData(data) {
         try {
-            console.log('Repository -------->>>>>>>>>>>>>>>>>> ', data)
             const resultSet = await this.__modelName.create(data);
             return resultSet;
         } catch (error) {

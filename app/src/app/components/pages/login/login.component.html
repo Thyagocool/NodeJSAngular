@@ -1,6 +1,7 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
-  <div class="flex justify-center h-screen w-screen items-center">
-    <div class="w-full md:w-1/2 flex flex-col items-center">
+<div class="login">
+<form  (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+  <div class="flex justify-center h-screen w-screen items-center ">
+    <div class="w-full md:w-1/2 flex flex-col items-center p-8 form" >
       <!-- text login -->
       <h1 class="text-center text-2xl font-bold text-gray-600 mb-6">LOGIN</h1>
       <!-- email input -->
@@ -74,3 +75,4 @@
     </div>
   </div>
 </form>
+</div>

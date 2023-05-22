@@ -16,13 +16,12 @@ export class UserComponent {
   operatorType: string = '';
   display: boolean = false;
   users: User[] = [];
-  user: User = {}
+  user: User = {};
   titlePage: string = 'Cadastro de Usuários';
 
   ngOnInit() {}
 
   getUSers(event: any) {
-    console.log('refresh table');
     this.service
       .selectUsers()
       .pipe(

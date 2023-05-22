@@ -20,7 +20,6 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(data:any) {
-    console.log(data)
     return this.http.post(this.API, data, this.httpOptions())
   }
 

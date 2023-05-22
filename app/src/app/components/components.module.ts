@@ -9,9 +9,13 @@ import { RegisterRoutingModule } from './components-routing.module';
 import { UserComponent } from './pages/user/user.component';
 import { UserTableComponent } from './pages/user/user-table/user-table.component';
 import { UserFormComponent } from './pages/user/user-form/user-form.component';
+import { TopBarComponent } from './commons/top-bar/top-bar.component';
+import { PostComponent } from './pages/post/post.component';
+import { PostFormComponent } from './pages/post/post-form/post-form.component';
+import { PostTableComponent } from './pages/post/post-table/post-table.component';
 
 @NgModule({
-  declarations: [MessageErrorComponent, LoginComponent, HomeComponent, UserComponent, UserTableComponent, UserFormComponent],
+  declarations: [MessageErrorComponent, LoginComponent, HomeComponent, UserComponent, UserTableComponent, UserFormComponent, TopBarComponent, PostComponent, PostFormComponent, PostTableComponent],
   imports: [CommonModule, ReactiveFormsModule, PrimeNgModule, RegisterRoutingModule],
   exports: [MessageErrorComponent],
 })

@@ -6,6 +6,9 @@ const userModel = database.define("users", {
     type: Sequelize.INTEGER,
     primaryKey: true
   },
+  fullName: {
+    type: Sequelize.STRING(60)
+  },      
   email: Sequelize.STRING(30),
   password: Sequelize.STRING
 }, {

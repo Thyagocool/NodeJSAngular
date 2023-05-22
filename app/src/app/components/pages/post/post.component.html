@@ -1,9 +1,9 @@
-<app-user-table
-  [user]="users"
+<app-post-table
+  [post]="posts"
   (showFormEdit)="openDialogEdit($event)"
   (showFormNew)="openDialogNew()"
-  (removeUser)="deleteUser($event)"
-></app-user-table>
+  (removePost)="deletePost($event)"
+></app-post-table>
 
 
 <p-dialog
@@ -14,6 +14,6 @@
     {{ titlePage }}
   </ng-template>
 
-  <app-user-form (onHideDialog)="openDialogNew()" [user]="user" [operatorType]="operatorType" class="form-pattern"></app-user-form>
+  <app-post-form (onHideDialog)="openDialogNew()" [post]="post" [operatorType]="operatorType" class="form-pattern"></app-post-form>
 
 </p-dialog>

@@ -2,12 +2,12 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/enviroments/enviroments';
-import { User } from '../interfaces/user';
+import { Post } from '../interfaces/post';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
+export class PostService {
 
   token:any = localStorage.getItem("Token")
 
@@ -20,23 +20,23 @@ export class UserService {
     }
   };
 
-  API:string = `${environment.API}users`;
+  API:string = `${environment.API}Posts`;
 
   constructor(private http: HttpClient) { }
 
-  selectUsers():Observable<User[]> {
-    return this.http.get<User[]>(this.API, this.httpOptions())
+  selectPosts():Observable<Post[]> {
+    return this.http.get<Post[]>(this.API, this.httpOptions())
   }
 
-  insertUser(data: User):Observable<User[]>{
-    return this.http.post<User[]>(this.API, data, this.httpOptions())
+  insertPost(data: Post):Observable<Post[]>{
+    return this.http.post<Post[]>(this.API, data, this.httpOptions())
   }
 
-  updateUser(id:number, data: User):Observable<User[]>{
-    return this.http.put<User[]>(`${this.API}/${id}`, data, this.httpOptions())
+  updatePost(id:number, data: Post):Observable<Post[]>{
+    return this.http.put<Post[]>(`${this.API}/${id}`, data, this.httpOptions())
   }
 
-  deleteUser(id:number){
+  deletePost(id:number){
     return this.http.delete(`${this.API}/${id}`, this.httpOptions())
   }
 

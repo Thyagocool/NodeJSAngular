@@ -21,6 +21,7 @@ export class UserFormComponent {
 
   ngOnInit(){
     this.userForm = this.formBuilder.group({
+      fullName: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
     })
@@ -32,10 +33,8 @@ export class UserFormComponent {
   }
 
   saveUser(){
-    console.log(this.operatorType)
     if(this.operatorType=='new'){
       const user = this.userForm.getRawValue();
-      console.log('Insert', user)
       if(!this.userForm.invalid){
         this.service.insertUser(user).pipe(
           tap({
@@ -45,14 +44,10 @@ export class UserFormComponent {
             error: erro => console.log(erro)
           })
         ).subscribe()
-
       }
     }else{
       const user = this.user;
-      console.log('Update', this.userForm.getRawValue())
-
       if(!this.userForm.invalid){
-
         this.service.updateUser(user.id, user).pipe(
           tap({
             next: res => {
@@ -61,11 +56,14 @@ export class UserFormComponent {
             error: erro => console.log(erro)
           })
         ).subscribe()
-
       }
     }
+    this.userForm.reset();
   }
+
   hideShowDialog() {
-    this.onHideDialog.emit()
+    this.onHideDialog.emit();
+    this.userForm.reset();
+
   }
 }
