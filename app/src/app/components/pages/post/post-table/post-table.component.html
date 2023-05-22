@@ -46,7 +46,7 @@
     currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} registros"
     [style]="{ 'border-radius': '10px' }"
     styleClass="p-datatable-striped"
-    [globalFilterFields]="['id', 'fullName', 'email']"
+    [globalFilterFields]="['id', 'title', 'post']"
     [scrollable]="true"
     scrollHeight="400px"
     [resizableColumns]="true"
@@ -54,18 +54,20 @@
   >
     <ng-template pTemplate="header">
       <tr>
-        <th style="width: 25%">Id</th>
-        <th style="width: 25%">Nome</th>
-        <th style="width: 25%">E-mail</th>
-        <th style="width: 25%">Ações</th>
+        <th style="width: 5%">Id</th>
+        <th style="width: 5%">Título</th>
+        <th style="width: 30%">Post</th>
+        <th style="width: 10%">Autor</th>
+        <th style="width: 5%">Ações</th>
       </tr>
     </ng-template>
     <ng-template pTemplate="body" let-post>
       <tr>
-        <td style="width: 25%">{{ post.id }}</td>
-        <td style="width: 25%">{{ post.fullName }}</td>
-        <td style="width: 25%">{{ post.email }}</td>
-        <td style="width: 25%">
+        <td style="width: 5%">{{ post.id }}</td>
+        <td style="width: 5%">{{ post.title }}</td>
+        <td style="width: 30%">{{ post.post }}</td>
+        <td style="width: 10%">{{ post.user.fullName }}</td>
+        <td style="width: 5%">
           <p-button
             icon="pi pi-pencil"
             (onClick)="openModalEdit(post)"

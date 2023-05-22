@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MessageErrorComponent } from './commons/message-error/message-error.component';
 import { LoginComponent } from './pages/login/login.component';
 import { PrimeNgModule } from '../modules/prime-ng.module';
@@ -16,7 +16,7 @@ import { PostTableComponent } from './pages/post/post-table/post-table.component
 
 @NgModule({
   declarations: [MessageErrorComponent, LoginComponent, HomeComponent, UserComponent, UserTableComponent, UserFormComponent, TopBarComponent, PostComponent, PostFormComponent, PostTableComponent],
-  imports: [CommonModule, ReactiveFormsModule, PrimeNgModule, RegisterRoutingModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, PrimeNgModule, RegisterRoutingModule],
   exports: [MessageErrorComponent],
 })
 export class ComponentsModule {}

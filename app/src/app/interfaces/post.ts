@@ -3,5 +3,5 @@ export interface Post {
   title?: String;
   post?: String;
   date?:Date;
-  author?:number;
+  id_author?:number;
 }

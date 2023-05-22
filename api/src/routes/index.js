@@ -1,10 +1,12 @@
 const express = require('express');
 const userRoutes = require('./userRoutes');
+const postRoutes = require('./postRoutes');
 
 
 const routes = (app) => {
     app.use(
-        userRoutes
+        userRoutes,
+        postRoutes
     );
 };
 

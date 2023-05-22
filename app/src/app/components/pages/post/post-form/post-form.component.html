@@ -1,34 +1,7 @@
 <form [formGroup]="postForm" (submit)="savePost()" class="teste">
   <div class="flex flex-col items-center">
-
-    <!-- fullname input -->
-    <div class="w-3/4 mb-6 mt-5">
-      <span class="p-float-label">
-        <input
-          pInputText
-          type="text"
-          formControlName="fullName"
-          class="form-control w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500"
-          name="fullName"
-          [(ngModel)]="post.fullName"
-        />
-        <label htmlFor="fullName">Nome Completo</label>
-      </span>
-      <div class="ui-grid-col-4">
-        <div
-          [hidden]="
-            postForm.controls['fullName'].valid ||
-            !postForm.controls['fullName'].dirty
-          "
-          class="alert alert-danger"
-        >
-          Nome is required
-        </div>
-      </div>
-    </div>
-
-    <!-- title input -->
-    <div class="w-3/4 mb-6 mt-5">
+    <!-- Title input -->
+    <div class="w-80 mb-6 mt-5">
       <span class="p-float-label">
         <input
           pInputText
@@ -38,8 +11,7 @@
           name="title"
           [(ngModel)]="post.title"
         />
-
-        <label htmlFor="title">post</label>
+        <label htmlFor="title">Título</label>
       </span>
       <div class="ui-grid-col-4">
         <div
@@ -53,36 +25,58 @@
         </div>
       </div>
     </div>
+
     <!-- post input -->
-    <div class="w-3/4 mb-6">
+    <div class="w-80 mb-6 mt-5">
       <span class="p-float-label">
-        <input
-          pInputText
-          type="post"
+        <textarea
+          rows="5"
+          cols="30"
+          pInputTextarea
           formControlName="post"
-          class="form-control w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500"
-          [(ngModel)]="post.post"
           name="post"
-        />
+          [(ngModel)]="post.post"
+          class="form-control w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500"
+        ></textarea>
         <label htmlFor="post">Post</label>
       </span>
-
       <div class="ui-grid-col-4">
-        <div *ngIf="postForm.get('post')?.errors?.['required']"
+        <div
           [hidden]="
-            postForm.controls['post'].valid ||
-            !postForm.controls['post'].dirty
+            postForm.controls['post'].valid || !postForm.controls['post'].dirty
           "
           class="alert alert-danger"
         >
-        Post is required
+          Post is required
+        </div>
+      </div>
+    </div>
+    <!-- author input -->
+    <div class="w-80 mb-6">
+      <span class="p-float-label">
+        <p-dropdown [options]="users" name="id_author" formControlName="id_author" [(ngModel)]="post.id_author" optionValue="id" optionLabel="fullName"></p-dropdown>
+      </span>
+
+      <div class="ui-grid-col-4">
+        <div
+          *ngIf="postForm.get('id_author')?.errors?.['required']"
+          [hidden]="
+            postForm.controls['id_author'].valid ||
+            !postForm.controls['id_author'].dirty
+          "
+          class="alert alert-danger"
+        >
+          Author is required
         </div>
       </div>
     </div>
     <div class="flex flex-row gap-2">
-      <p-button class="flex-auto p-2 edit" (click)="savePost()">Salvar</p-button>
-      <p-button class="flex-auto p-2 trash" (click)="hideShowDialog()">Cancelar</p-button>
+      <p-button class="flex-auto p-2 edit" (click)="savePost()"
+        >Salvar</p-button
+      >
+      <p-button class="flex-auto p-2 trash" (click)="hideShowDialog()"
+        >Cancelar</p-button
+      >
     </div>
-
   </div>
 </form>

@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { tap } from 'rxjs';
+import { User } from 'src/app/interfaces/user';
 import { PostService } from 'src/app/services/post.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-post-form',
@@ -13,21 +15,31 @@ export class PostFormComponent {
   @Input() operatorType: string = '';
   @Input() post: any = [];
 
+  users: User[] = []
+  selectedUser: string = '';
+
   postForm!: FormGroup;
   errorDescription: string = '';
 
-  constructor(private formBuilder: FormBuilder, private service: PostService) {}
+  constructor(private formBuilder: FormBuilder, private service: PostService, private userService: UserService) {}
 
   ngOnInit() {
     this.postForm = this.formBuilder.group({
-      fullName: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      title: ['', [Validators.required]],
+      post: ['', [Validators.required]],
+      id_author: ['', Validators.required],
     });
 
-    if (this.operatorType == 'edit') {
-      this.postForm.controls['email'].setValue(this.post.email);
-    }
+
+    this.userService.selectUsers().pipe(
+      tap({
+        next: res => {
+          this.users = res
+        },
+        error: error => console.error(error)
+      })
+    ).subscribe()
+
   }
 
   savePost() {
@@ -41,13 +53,13 @@ export class PostFormComponent {
               next: (res) => {
                 this.hideShowDialog();
               },
-              error: (erro) => console.log(erro),
+              error: (erro) => console.error(erro),
             })
-          )
-          .subscribe();
+          ).subscribe();
       }
     } else {
       const post = this.post;
+
       if (!this.postForm.invalid) {
         this.service
           .updatePost(post.id, post)
@@ -56,7 +68,7 @@ export class PostFormComponent {
               next: (res) => {
                 this.hideShowDialog();
               },
-              error: (erro) => console.log(erro),
+              error: (erro) => console.error(erro),
             })
           )
           .subscribe();

@@ -53,7 +53,7 @@ export class PostComponent {
         next: res => {
           this.getPosts(null);
         },
-        error: erro => console.log(erro)
+        error: erro => console.error(erro)
       })
     ).subscribe()
   }

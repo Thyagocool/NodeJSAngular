@@ -53,7 +53,7 @@ export class UserComponent {
         next: res => {
           this.getUSers(null);
         },
-        error: erro => console.log(erro)
+        error: erro => console.error(erro)
       })
     ).subscribe()
   }

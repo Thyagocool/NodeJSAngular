@@ -7,9 +7,6 @@ class UserRepository extends Repository{
         super(userModel)
     }
 
-    async login(){
-
-    }
 }
 
 

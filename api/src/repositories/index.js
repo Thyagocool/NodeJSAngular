@@ -5,7 +5,6 @@ class Repository {
 
     async selectAll(search){
         try {
-            console.log(search)
             const where = {...search};
             const result = await this.__modelName.findAll({where});
             return result;

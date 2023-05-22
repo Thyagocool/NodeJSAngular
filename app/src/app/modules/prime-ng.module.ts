@@ -8,6 +8,9 @@ import { SplitterModule } from 'primeng/splitter';
 import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 import { PanelModule } from 'primeng/panel';
+import { InputTextareaModule } from 'primeng/inputtextarea';
+import { DropdownModule } from 'primeng/dropdown';
+
 
 @NgModule({
   declarations: [],
@@ -22,7 +25,9 @@ import { PanelModule } from 'primeng/panel';
     ButtonModule,
     InputTextModule,
     DialogModule,
-    PanelModule
+    PanelModule,
+    InputTextareaModule,
+    DropdownModule
   ]
 })
 export class PrimeNgModule { }

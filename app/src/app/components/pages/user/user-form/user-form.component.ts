@@ -41,7 +41,7 @@ export class UserFormComponent {
             next: res => {
               this.hideShowDialog();
             },
-            error: erro => console.log(erro)
+            error: erro => console.error(erro)
           })
         ).subscribe()
       }
@@ -53,7 +53,7 @@ export class UserFormComponent {
             next: res => {
               this.hideShowDialog();
             },
-            error: erro => console.log(erro)
+            error: erro => console.error(erro)
           })
         ).subscribe()
       }
