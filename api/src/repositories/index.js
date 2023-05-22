@@ -5,6 +5,7 @@ class Repository {
 
     async selectAll(search){
         try {
+            console.log(search)
             const where = {...search};
             const result = await this.__modelName.findAll({where});
             return result;
@@ -12,8 +13,35 @@ class Repository {
             return {message: error.message};
             
         }
-
     }
+
+    async createData(data) {
+        try {
+            console.log('Repository -------->>>>>>>>>>>>>>>>>> ', data)
+            const resultSet = await this.__modelName.create(data);
+            return resultSet;
+        } catch (error) {
+            return {message: error.message};
+        }    
+    };
+
+    async deleteData(id) {
+        try {
+            await this.__modelName.destroy({where: { id:id }});
+            return {message: "Data was deleted"};
+        } catch (error) {
+            return {message: error.message};
+        }
+    };
+
+    async updateData(id, data){
+        try{
+            const resultSet =  await this.__modelName.update(data, {where: { id:id }});
+            return {message: 'Data as updated'};
+        }catch(error){
+            return {message: error.message};
+        };
+    };
 }
 
 module.exports = Repository;
