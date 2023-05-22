@@ -1,0 +1,76 @@
+<form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+  <div class="flex justify-center h-screen w-screen items-center">
+    <div class="w-full md:w-1/2 flex flex-col items-center">
+      <!-- text login -->
+      <h1 class="text-center text-2xl font-bold text-gray-600 mb-6">LOGIN</h1>
+      <!-- email input -->
+      <div class="w-3/4 mb-6">
+        <span class="p-float-label">
+          <input
+            pInputText
+            type="text"
+            formControlName="email"
+            class="form-control w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500"
+            name="email"
+          />
+
+          <label htmlFor="username">Username</label>
+        </span>
+        <div class="ui-grid-col-4">
+          <div
+            [hidden]="
+              loginForm.controls['email'].valid ||
+              !loginForm.controls['email'].dirty
+            "
+            class="alert alert-danger"
+          >
+            E-mail is required
+          </div>
+        </div>
+      </div>
+      <!-- password input -->
+      <div class="w-3/4 mb-6">
+        <!-- <input type="password" name="password" id="password" class="w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500 " placeholder="Password"> -->
+        <span class="p-float-label">
+          <input
+            pInputText
+            type="password"
+            formControlName="password"
+            class="form-control w-full py-4 px-8 bg-slate-200 placeholder:font-semibold rounded hover:ring-1 outline-blue-500"
+            name="password"
+          />
+          <label htmlFor="password">Password</label>
+        </span>
+
+        <div class="ui-grid-col-4">
+          <div *ngIf="submitted || loginForm.get('password')?.errors?.['required']"
+            [hidden]="
+              loginForm.controls['password'].valid ||
+              !loginForm.controls['password'].dirty
+            "
+            class="alert alert-danger"
+          >
+            Password is required
+          </div>
+        </div>
+      </div>
+      <!-- remember input -->
+      <div class="w-3/4 flex flex-row justify-between">
+        <div>
+          <a href="#" class="text-sm text-slate-400 hover:text-blue-500"
+            >New</a
+          >
+        </div>
+      </div>
+      <!-- button -->
+      <div class="w-3/4 mt-4">
+        <button
+          type="submit"
+          class="py-4 bg-blue-400 w-full rounded text-blue-50 font-bold hover:bg-blue-700"
+        >
+          LOGIN
+        </button>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.main-card .p-card-content{
+  display: flex;
+  flex-direction: column!important;
+  gap: 0.2rem;
+}
+
+
+.p-datatable-thead tr th{
+  background-color: transparent!important;
+}
+
+.p-datatable-thead tr{
+  background-color: yellow!important;
+  border-radius: 6px!important;
+}
+
+
+.form-control{
+  margin-bottom: 10px;
+}
+
+.new button {
+  background-color: rgb(20, 20, 255)!important;
+}
+
+.new button:hover {
+  background-color: rgb(61, 61, 255)!important;
+}
+
+.trash button {
+  background-color: rgb(255, 22, 22)!important;
+  border: none;
+}
+
+.trash button:hover {
+  background-color: rgb(252, 106, 106)!important;
+  border: none;
+}
+
+.edit button {
+  background-color: rgb(26, 178, 26)!important;
+  border: none;
+}
+
+.edit button:hover {
+  background-color: rgb(161, 250, 161)!important;
+  border: none;
+}
+
+
+.p-dialog .p-dialog-header {
+  padding: 0.5rem!important;
+}

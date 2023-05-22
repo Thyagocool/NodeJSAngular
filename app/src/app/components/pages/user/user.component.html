@@ -1,0 +1,19 @@
+<app-user-table
+  [user]="users"
+  (showFormEdit)="openDialogEdit($event)"
+  (showFormNew)="openDialogNew()"
+  (removeUser)="deleteUser($event)"
+></app-user-table>
+
+
+<p-dialog
+  [(visible)]="display"
+  [breakpoints]="{ '960px': '75vw', '640px': '100vw' }"
+>
+  <ng-template pTemplate="header">
+    {{ titlePage }} {{operatorType}}
+  </ng-template>
+
+  <app-user-form (onHideDialog)="openDialogNew()" [user]="user" [operatorType]="operatorType"></app-user-form>
+
+</p-dialog>
