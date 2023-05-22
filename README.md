@@ -1,28 +1,29 @@
 # CRUD Project
 
-## Simple CRUD project using NodeJS and Angular
+## Simples CRUD utilzando NodeJS com Angular Framework
 
-<h1 align="center">
-    <a href="https://angular.io/">Angular</a>
-</h1>
-<p align="center">Using Angular xx to build the app and its components and the Bootstrap framework for UI styling</p>
+<h3>Rondando o Projeto</i></h3>
 <hr>
-<h3>Running API <i>(Backend)</i></h3>
+<b>Pré Requisitos:</b>
+
+Possuir as versões mais atualizadas do NodeJs, NPM, Angular, Angular-Cli, além de já possuir um serviço do mysql instalado.
 <hr>
-<b>Prerequisites:</b>
+<h3 align="center">
+    Backend
+</h3>
 
->Must have NodeJS and NPM in addition to mysql for the previously installed database
+>Para o Backend, em um terminal separado, entrar na pasta [api] e executar o comando `npm install`, ao finalizar a instalação, rodar o comando `$ npm run create-database`, este comando irá criar toda a estrutura do banco de dados, criando o esquema do banco de dados, tabelas e populando um usuário padrão para efetuar login.
 
+<hr>
+<h3 align="center">
+    Frontend
+</h3>
 
+>Após clonar o projeto, entrar em um terminal e executar o comando `$ npm install ` dentro da pasta [app]. Após, executar ng s. A Aplicação irá iniciar no endereço: http://localhost:4200
 
-In the terminal, inside the api folder, run the following command: 
+Usuário padrão para logar na aplicação: 
 
-`$ npm run create-database`
+login: admin@adm.com
 
-Then run the command:
-
-`$npm start`
-
-The API will run on port 3000
-
+senha: 123
 
